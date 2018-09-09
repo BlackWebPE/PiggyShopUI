@@ -13,7 +13,7 @@ use pocketmine\utils\TextFormat;
  * Class BuyCommand
  * @package PiggyShopUI\Commands
  */
-class BuyCommand extends PluginCommand
+class ShopCommand extends PluginCommand
 {
     /**
      * BuyCommand constructor.
@@ -23,9 +23,9 @@ class BuyCommand extends PluginCommand
     public function __construct(string $name, Main $plugin)
     {
         parent::__construct($name, $plugin);
-        $this->setDescription("Access the shop UI");
+        $this->setDescription("");
         $this->setPermission("piggyshopui.command.buy");
-        $this->setUsage("/buy [category]");
+        $this->setUsage("/shop");
     }
 
     /**
@@ -46,7 +46,7 @@ class BuyCommand extends PluginCommand
                             $plugin->openBuyCategoryMenu($sender, $args[0]);
                             return;
                         }
-                        $sender->sendMessage(TextFormat::RED . "Invalid category.");
+                        $sender->sendMessage(TextFormat::RED . "Invalid Category");
                         return;
                     }
                     $plugin->openBuyMainMenu($sender);
